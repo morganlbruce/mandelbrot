@@ -6,11 +6,11 @@ from tqdm import tqdm
 cmap = matplotlib.cm.nipy_spectral
 cmap.set_bad('black')
 
-RES_STEP = 0.0001
-X_MIN = -0.7
-X_MAX = -0.5
-Y_MIN = 0.4
-Y_MAX = 0.6
+RES_STEP = 0.001
+X_MIN = -2
+X_MAX = 1
+Y_MIN = -1
+Y_MAX = 1
 MAX_N = 300
 MAGNITUDE_THRESHOLD = 3.
 
@@ -33,7 +33,13 @@ def iterate_convergence(plane):
 
 
 def plot_fig(output):
-    fig, ax = plt.subplots(figsize=(14, 14))
+    height = Y_MAX - Y_MIN
+    width = X_MAX - X_MIN
+    if width == 0:
+        print('Stop that')
+        return
+    fig, ax = plt.subplots()
+    ax.set_aspect(height/width, adjustable='box')
     ax.imshow(output, cmap=cmap, interpolation='nearest')
     ax.set_axis_off()
     plt.tight_layout()
