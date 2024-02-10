@@ -36,6 +36,7 @@ def plot_fig(output):
     fig, ax = plt.subplots(figsize=(14, 14))
     ax.imshow(output, cmap=cmap, interpolation='nearest')
     ax.set_axis_off()
+    plt.tight_layout()
     file_path = f'outputs/x_min-{X_MIN}--x_max-{X_MAX}--y_min-{Y_MIN}--y_max-{Y_MAX}--res_step-{RES_STEP}-mandelbrot.png'
     plt.savefig(file_path, dpi=DPI)
     print(f'Output saved to {file_path} (options: DPI: {DPI})')
