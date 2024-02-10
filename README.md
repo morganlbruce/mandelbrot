@@ -1,5 +1,6 @@
 Simulation code to plot the Mandelbrot set.
 
+Quick start:
 ```
 python -m venv venv
 source venv/bin/activate
